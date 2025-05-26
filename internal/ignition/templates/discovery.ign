@@ -127,6 +127,15 @@
             "name": "root"
         },
         "contents": { "source": "data:text/plain;base64,{{.SELINUX_POLICY}}" }
+    },
+    {
+        "overwrite": true,
+        "path": "/etc/agent.env",
+        "mode": 420,
+        "user": {
+            "name": "root"
+        },
+        "contents": { "source": "data:text/plain;base64,{{ executeTemplate "agent.env" . | toBase64 }}" }
     }{{if .RH_ROOT_CA}},
     {
       "overwrite": true,
